@@ -1,0 +1,7 @@
+select 
+sum(S.OrderQuantity * P.ProductPrice) total_sales,
+sum(S.OrderQuantity * P.ProductCost) total_cost,
+sum(S.OrderQuantity *  P.ProductPrice) - sum(S.OrderQuantity * P.ProductCost) total_profit
+from log.adventure_sales as S
+join `log`.`adventureworks_product (1)` as P
+on S.ProductKey = P.ProductKey
