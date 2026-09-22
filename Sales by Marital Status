@@ -1,0 +1,10 @@
+SELECT C.MaritalStatus AS Marital_Status, sum(s.OrderQuantity * p.ProductPrice) AS Total_Sales
+FROM `prime-sunset-508012-u9.my_project.master_sales` s
+join `prime-sunset-508012-u9.my_project.adv_products` P
+on s.ProductKey = p.ProductKey
+
+join `prime-sunset-508012-u9.my_project.adv_customers` C
+on s.CustomerKey = c.CustomerKey
+Group By MaritalStatus
+order by Total_Sales Desc
+limit 10
