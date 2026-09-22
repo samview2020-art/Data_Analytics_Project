@@ -1,0 +1,8 @@
+SELECT p.ProductName, sum(s.OrderQuantity * p.ProductPrice) as Total_Sales
+FROM `prime-sunset-508012-u9.my_project.master_sales` s
+join `prime-sunset-508012-u9.my_project.adv_products` p
+on s.ProductKey = p.ProductKey
+Group By p.ProductName
+-- Having Total_Sales > 4000
+Order By Total_Sales desc
+LIMIT 10
