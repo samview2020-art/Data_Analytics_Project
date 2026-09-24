@@ -1,0 +1,9 @@
+SELECT c.Occupation, SUM(S.OrderQuantity * P.ProductPrice) as Total_Sales
+FROM `prime-sunset-508012-u9.my_project.adv_customers` as C
+JOIN `my_project.master_sales` as S
+ON C.CustomerKey = S.Customerkey
+join `my_project.adv_products` as P
+on S.ProductKey = P.ProductKey
+GROUP BY Occupation
+order by Total_Sales desc
+limit 3
